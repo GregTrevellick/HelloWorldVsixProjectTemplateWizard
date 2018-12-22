@@ -7,6 +7,7 @@ namespace MyProjectWizard
     {
         private static string customMessage;
         private TextBox textBox1;
+        private Label label1;
         private Button button1;
 
         public UserInputForm()
@@ -41,6 +42,30 @@ namespace MyProjectWizard
         {
             customMessage = textBox1.Text;
             this.Close();
+        }
+
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(2, 97);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "CMD will ask u questions";
+            // 
+            // UserInputForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.label1);
+            this.Name = "UserInputForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
     }
 

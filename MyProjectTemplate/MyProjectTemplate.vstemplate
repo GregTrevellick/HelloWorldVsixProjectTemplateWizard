@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>MyProjectTemplate</Name>
+    <Name>MyProjectTemplate2b</Name>
     <Description>MyProjectTemplate</Description>
     <Icon>MyProjectTemplate.ico</Icon>
     <ProjectType>CSharp</ProjectType>
@@ -9,7 +9,7 @@
     <SortOrder>1000</SortOrder>
     <TemplateID>878fe27b-3c68-46a7-8fc1-5e834a477d65</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>MyProjectTemplate</DefaultName>
+    <DefaultName>MyProjectTemplate22</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>

@@ -40,6 +40,9 @@ namespace MyProjectWizard
                 inputForm = new UserInputForm();
                 inputForm.ShowDialog();
 
+                //run yo.bat here
+
+
                 customMessage = UserInputForm.CustomMessage;
 
                 // Add custom parameters.  
