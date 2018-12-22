@@ -24,8 +24,8 @@ for /f "eol=: delims=" %%F in ('dir /b/o-d/s/tc *.csproj') do (
 )
 
 :: open last .csproj in "array" which is the .csproj file we just created
-set selection=%folderCnt%
-!folder%selection%!
+rem set selection=%folderCnt%
+!folder%folderCnt%!
 
 rem pause
 
