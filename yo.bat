@@ -11,9 +11,8 @@ call yo angular-basic
 rem set foo="bar"
 rem echo %foo%
 
+::build "array" of .csproj files in sub-folders
 set folderCnt=0
-
-::build "array" of folders
 rem /F = loop thru files
 rem /b = bare format output of dir
 rem /o-d = sort output of dir, -d means sort by newest date 
@@ -24,7 +23,10 @@ for /f "eol=: delims=" %%F in ('dir /b/o-d/s/tc *.csproj') do (
   set "folder!folderCnt!=%%F"
 )
 
-:: open first entry
-!folder1!
+:: open last .csproj in "array" which is the .csproj file we just created
+set selection=%folderCnt%
+!folder%selection%!
 
 rem pause
+
+rem https://stackoverflow.com/questions/10544646/dir-output-into-bat-array
