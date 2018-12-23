@@ -54,25 +54,21 @@ namespace MyProjectWizard2
 
         private void InitializeComponent()
         {
-            this.label1 = new Label();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new Point(2, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new Size(125, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CMD will ask u questions";
-            // 
-            // UserInputForm
-            // 
-            this.ClientSize = new Size(284, 261);
-            this.Controls.Add(label1);
-            this.Name = "UserInputForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            label1 = new Label();
+            SuspendLayout();
+
+            label1.AutoSize = true;
+            label1.Location = new Point(2, 97);
+            label1.Name = "label1";
+            label1.Size = new Size(125, 13);
+            label1.TabIndex = 0;
+            label1.Text = "CMD will ask u questions";
+
+            ClientSize = new Size(284, 261);
+            Controls.Add(label1);
+            Name = "UserInputForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
