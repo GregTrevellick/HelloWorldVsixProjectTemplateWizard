@@ -59,7 +59,6 @@
     <Compile Include="WizardImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\key.snk" />
     <None Include="key.snk" />
     <None Include="packages.config" />
     <None Include="source.extension.vsixmanifest">
