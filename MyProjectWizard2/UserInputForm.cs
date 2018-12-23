@@ -7,19 +7,16 @@ namespace MyProjectWizard2
 {
     public partial class UserInputForm : Form
     {
-        private Label label1;
-        private Button button1;
-
         public UserInputForm()
         {
             Size = new Size(200, 150);
 
-            label1 = new Label();
+            var label1 = new Label();
             label1.Location = new Point(10, 10);
             label1.Text = "Will open cmd";
             Controls.Add(label1);
 
-            button1 = new Button();
+            var button1 = new Button();
             button1.Location = new Point(10, 50);
             button1.Size = new Size(50, 25);
             button1.Click += button1_Click;
