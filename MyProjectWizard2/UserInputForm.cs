@@ -15,6 +15,11 @@ namespace MyProjectWizard2
         {
             this.Size = new System.Drawing.Size(155, 265);
 
+            label1 = new Label();
+            label1.Location = new System.Drawing.Point(10, 15);
+            label1.Text = "Will open command prompt - ok?";
+            this.Controls.Add(label1);
+
             button1 = new Button();
             button1.Location = new System.Drawing.Point(90, 25);
             button1.Size = new System.Drawing.Size(50, 25);
@@ -41,39 +46,31 @@ namespace MyProjectWizard2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ExecuteCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
-
+            InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat", false);
             customMessage = textBox1.Text;
             this.Close();
         }
 
-        static void ExecuteCommand(string command)
+        public static void InvokeCommand(string batchFileToBeOpened, bool useShellExecute)
         {
-            int exitCode;
-            ProcessStartInfo processInfo;
-            Process process;
+            var start = new ProcessStartInfo()
+            {
+                //Arguments,
+                CreateNoWindow = false,
+                FileName = batchFileToBeOpened,
+                UseShellExecute = useShellExecute,//i.e. open exe within its working directory
+                WindowStyle = ProcessWindowStyle.Normal,
+                //WorkingDirectory
+            };
 
-            processInfo = new ProcessStartInfo("cmd.exe", "/c " + command);
-            processInfo.CreateNoWindow = true;
-            processInfo.UseShellExecute = false;
-            // *** Redirect the output ***
-            processInfo.RedirectStandardError = true;
-            processInfo.RedirectStandardOutput = true;
-
-            process = Process.Start(processInfo);
-            process.WaitForExit();
-
-            // *** Read the streams ***
-            // Warning: This approach can lead to deadlocks, see Edit #2
-            string output = process.StandardOutput.ReadToEnd();
-            string error = process.StandardError.ReadToEnd();
-
-            exitCode = process.ExitCode;
-
-            Console.WriteLine("output>>" + (String.IsNullOrEmpty(output) ? "(none)" : output));
-            Console.WriteLine("error>>" + (String.IsNullOrEmpty(error) ? "(none)" : error));
-            Console.WriteLine("ExitCode: " + exitCode.ToString(), "ExecuteCommand");
-            process.Close();
+            try
+            {
+                using (Process.Start(start)) { }
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
         }
 
         private void InitializeComponent()
