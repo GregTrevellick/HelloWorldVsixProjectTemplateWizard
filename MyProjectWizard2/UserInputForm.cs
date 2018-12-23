@@ -25,29 +25,29 @@ namespace MyProjectWizard2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
+            //InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
             Close();
         }
 
-        private static void InvokeCommand(string batchFileToBeOpened)
-        {
-            var start = new ProcessStartInfo()
-            {
-                CreateNoWindow = false,
-                FileName = batchFileToBeOpened,
-                UseShellExecute = false,
-                WindowStyle = ProcessWindowStyle.Normal,
-            };
+        //private void InvokeCommand(string batchFileToBeOpened)
+        //{
+        //    var start = new ProcessStartInfo()
+        //    {
+        //        CreateNoWindow = false,
+        //        FileName = batchFileToBeOpened,
+        //        UseShellExecute = false,
+        //        WindowStyle = ProcessWindowStyle.Normal,
+        //    };
 
-            try
-            {
-                using (Process.Start(start)) { }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
-        }
+        //    try
+        //    {
+        //        using (Process.Start(start)) { }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw (ex);
+        //    }
+        //}
 
         //private void InitializeComponent()
         //{

@@ -2,7 +2,9 @@ using EnvDTE;
 using Microsoft.VisualStudio.TemplateWizard;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
+using Process = System.Diagnostics.Process;
 
 namespace MyProjectWizard2
 {
@@ -15,10 +17,38 @@ namespace MyProjectWizard2
             {
                 var userInputForm = new UserInputForm();
                 userInputForm.ShowDialog();
+
+                InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
+
+                throw new MyException();
+            }
+            catch (MyException ex)
+            {
+                //crude attempt to stop creating a regular csproj 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void InvokeCommand(string batchFileToBeOpened)
+        {
+            var start = new ProcessStartInfo()
+            {
+                CreateNoWindow = false,
+                FileName = batchFileToBeOpened,
+                UseShellExecute = false,
+                WindowStyle = ProcessWindowStyle.Normal,
+            };
+
+            try
+            {
+                using (Process.Start(start)) { }
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
             }
         }
 
