@@ -1,16 +1,15 @@
+using EnvDTE;
+using Microsoft.VisualStudio.TemplateWizard;
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TemplateWizard;
 using System.Windows.Forms;
-using EnvDTE;
-using System.Diagnostics;
 
 namespace MyProjectWizard2
 {
     public class WizardImplementation : IWizard
     {
-        private UserInputForm inputForm;
-        private string customMessage;
+        private UserInputForm userInputForm;
+        ///////////////private string customMessage;
 
         // This method is called before opening any item that has the OpenInEditor attribute.  
         public void BeforeOpeningFile(ProjectItem projectItem)
@@ -37,14 +36,14 @@ namespace MyProjectWizard2
         {
             try
             {
-                // Display a form to the user. The form collects  input for the custom message.  
-                inputForm = new UserInputForm();
-                inputForm.ShowDialog();
+                //////////////////////////////// Display a form to the user. The form collects  input for the custom message.  
+                userInputForm = new UserInputForm();
+                userInputForm.ShowDialog();
 
-                customMessage = UserInputForm.CustomMessage;
+                //////////////customMessage = UserInputForm.CustomMessage;
 
-                // Add custom parameters.  
-                replacementsDictionary.Add("$custommessage$", customMessage);
+                ////////////// Add custom parameters.  
+                //////////////replacementsDictionary.Add("$custommessage$", customMessage);
             }
             catch (Exception ex)
             {
@@ -57,7 +56,5 @@ namespace MyProjectWizard2
         {
             return true;
         }
-
-
     }
 }

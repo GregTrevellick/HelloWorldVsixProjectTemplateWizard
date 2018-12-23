@@ -6,8 +6,8 @@ namespace MyProjectWizard2
 {
     public partial class UserInputForm : Form
     {
-        private static string customMessage;
-        private TextBox textBox1;
+        /////////////////////////////private static string customMessage;
+        /////////////////////////private TextBox textBox1;
         private Label label1;
         private Button button1;
 
@@ -26,41 +26,41 @@ namespace MyProjectWizard2
             button1.Click += button1_Click;
             this.Controls.Add(button1);
 
-            textBox1 = new TextBox();
-            textBox1.Location = new System.Drawing.Point(10, 25);
-            textBox1.Size = new System.Drawing.Size(70, 20);
-            this.Controls.Add(textBox1);
+            ////////////textBox1 = new TextBox();
+            ////////////textBox1.Location = new System.Drawing.Point(10, 25);
+            ////////////textBox1.Size = new System.Drawing.Size(70, 20);
+            ////////////this.Controls.Add(textBox1);
         }
 
-        public static string CustomMessage
-        {
-            get
-            {
-                return customMessage;
-            }
-            set
-            {
-                customMessage = value;
-            }
-        }
+        //////////////public static string CustomMessage
+        //////////////{
+        //////////////    get
+        //////////////    {
+        //////////////        return customMessage;
+        //////////////    }
+        //////////////    set
+        //////////////    {
+        //////////////        customMessage = value;
+        //////////////    }
+        //////////////}
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat", false);
-            customMessage = textBox1.Text;
+            InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");//////////////////////////////////////////////////, false);
+            ///////////////////////////////customMessage = textBox1.Text;
             this.Close();
         }
 
-        public static void InvokeCommand(string batchFileToBeOpened, bool useShellExecute)
+        public static void InvokeCommand(string batchFileToBeOpened)////////////////////////////////////////, bool useShellExecute)
         {
             var start = new ProcessStartInfo()
             {
-                //Arguments,
+                ///////////////////////////////////////////////Arguments,
                 CreateNoWindow = false,
                 FileName = batchFileToBeOpened,
-                UseShellExecute = useShellExecute,//i.e. open exe within its working directory
+                UseShellExecute = false,//////////////////////////////////////useShellExecute,//i.e. open exe within its working directory
                 WindowStyle = ProcessWindowStyle.Normal,
-                //WorkingDirectory
+                //////////////////////////////////WorkingDirectory
             };
 
             try
@@ -94,8 +94,6 @@ namespace MyProjectWizard2
             this.Name = "UserInputForm";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
     }
-
 }
