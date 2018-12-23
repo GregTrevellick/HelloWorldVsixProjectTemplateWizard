@@ -23,5 +23,7 @@ Paste public key into C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MyProjec
 
 
 
-(1) amend to work with only the vsix proj, not MyPropjectTemplate.csproj too
-(2) change dialog to not be dynamically generated
+open the new g6.csproj in existing parent VS process, not a new VS process
+make it work without hardcoded path to batch file i.e. batch file included in vsix itself
+amend to work with only the vsix proj, not MyPropjectTemplate.csproj too (fixes this ?: show dialog before the usual "new project" prompt, and don't create the new proj)
+change dialog to not be dynamically generated
