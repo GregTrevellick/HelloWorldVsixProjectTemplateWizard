@@ -8,8 +8,6 @@ namespace MyProjectWizard2
 {
     public class WizardImplementation : IWizard
     {
-        ///////////////////////////////////////private UserInputForm userInputForm;
-
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
             try
