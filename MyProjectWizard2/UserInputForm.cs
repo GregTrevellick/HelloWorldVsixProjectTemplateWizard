@@ -32,7 +32,7 @@ namespace MyProjectWizard2
             Close();
         }
 
-        public static void InvokeCommand(string batchFileToBeOpened)
+        private static void InvokeCommand(string batchFileToBeOpened)
         {
             var start = new ProcessStartInfo()
             {
