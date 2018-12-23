@@ -2,7 +2,7 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>MyProjectTemplate2b</Name>
-    <Description>MyProjectTemplate</Description>
+    <Description>MyProjectTemplate2bb</Description>
     <Icon>MyProjectTemplate.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
@@ -19,7 +19,7 @@
     </Project>
   </TemplateContent>
   <WizardExtension>  
-    <Assembly>MyProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=c8911b993b41a682</Assembly>  
+    <Assembly>MyProjectWizard2, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9e2a5071fb59846e</Assembly>  
     <FullClassName>MyProjectWizard2.WizardImplementation</FullClassName>  
   </WizardExtension>  
 </VSTemplate>
