@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TemplateWizard;
 using System.Windows.Forms;
 using EnvDTE;
+using System.Diagnostics;
 
-namespace MyProjectWizard
+namespace MyProjectWizard2
 {
     public class WizardImplementation : IWizard
     {
@@ -40,9 +41,6 @@ namespace MyProjectWizard
                 inputForm = new UserInputForm();
                 inputForm.ShowDialog();
 
-                //run yo.bat here
-
-
                 customMessage = UserInputForm.CustomMessage;
 
                 // Add custom parameters.  
@@ -59,5 +57,7 @@ namespace MyProjectWizard
         {
             return true;
         }
+
+
     }
 }

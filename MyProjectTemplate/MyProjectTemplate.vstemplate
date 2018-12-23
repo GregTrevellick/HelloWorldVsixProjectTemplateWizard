@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>MyProjectTemplate2b</Name>
@@ -20,6 +20,6 @@
   </TemplateContent>
   <WizardExtension>  
     <Assembly>MyProjectWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=c8911b993b41a682</Assembly>  
-    <FullClassName>MyProjectWizard.WizardImplementation</FullClassName>  
+    <FullClassName>MyProjectWizard2.WizardImplementation</FullClassName>  
   </WizardExtension>  
 </VSTemplate>
