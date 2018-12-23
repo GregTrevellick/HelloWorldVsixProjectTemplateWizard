@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>MyProjectTemplate2b</Name>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>None</DefaultName>
     <Description>MyProjectTemplate2bb</Description>
+ 
     <Icon>MyProjectTemplate.ico</Icon>
+    <Name>MyProjectTemplate2b</Name>
+    
+    
     <ProjectType>CSharp</ProjectType>
+    <ProvideDefaultName>true</ProvideDefaultName>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>878fe27b-3c68-46a7-8fc1-5e834a477d65</TemplateID>
-    <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>None</DefaultName>
-    <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
     <!--<Project File="ProjectTemplate.csproj" ReplaceParameters="true">
