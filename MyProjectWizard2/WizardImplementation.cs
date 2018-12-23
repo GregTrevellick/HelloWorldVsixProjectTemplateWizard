@@ -10,6 +10,7 @@ namespace MyProjectWizard2
     {
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
+            //1
             try
             {
                 var userInputForm = new UserInputForm();
@@ -28,11 +29,13 @@ namespace MyProjectWizard2
 
         public void ProjectFinishedGenerating(Project project)
         {
+            //3
         }
 
         // This method is called after the project is created.  
         public void RunFinished()
         {
+            //4
         }
 
         // This method is only called for item templates, not for project templates.  
@@ -43,6 +46,7 @@ namespace MyProjectWizard2
         // This method is only called for item templates, not for project templates.  
         public bool ShouldAddProjectItem(string filePath)
         {
+            //2
             return true;
         }
     }
