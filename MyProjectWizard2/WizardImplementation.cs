@@ -17,12 +17,17 @@ namespace MyProjectWizard2
             {
                 var userInputForm = new UserInputForm();
                 userInputForm.ShowDialog();
-                //when user presses "ok" in dialog 2 things happens asynchronously
-                // (1) the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node)
-                //     this takes a few seconds
-                // (2) we run the invoke command below 
-                //     this takes multiple seconds
+
+                // (1) within a few milli-seconds:
+                // the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node)
+
+                // (2) within 15+ seconds (requires user input & downloads):
                 InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
+
+                // This is the only point in code we hit where we can try to move/delete the regular project
+                // We can now move/delete the regular project safe in the knowledge that enough time has passed to gaurantee it was created successfully
+                Console.WriteLine("$safeprojectname$");
+                InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MoveTheRegularProjectToCTemp.bat -None8");
             }
             catch (Exception ex)
             {
@@ -60,9 +65,7 @@ namespace MyProjectWizard2
         public void ProjectFinishedGenerating(Project project)
         {
             //3
-            //could potentially delete the newly created project here
-            Console.WriteLine("$safeprojectname$");
-            InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MoveTheRegularProjectToCTemp.bat");
+            //this breakpoint is never when we create an empty directory only as our project
         }
 
         // This method is called after the project is created.  
