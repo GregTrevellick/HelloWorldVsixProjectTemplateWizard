@@ -30,7 +30,7 @@ namespace MyProjectWizard2
                 // We can now move/delete the regular project safe in the knowledge that enough time has passed to gaurantee it was created successfully
                 Console.WriteLine("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
                 Console.WriteLine("$safeprojectname$");
-                //TODO InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MoveTheRegularProjectToCTemp.bat -None8");
+                //TODO InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MoveTheRegularProjectToCTemp.bat -$safeprojectname$");
             }
             catch (Exception ex)
             {
