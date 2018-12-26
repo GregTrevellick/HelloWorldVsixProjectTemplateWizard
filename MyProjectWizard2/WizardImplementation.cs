@@ -12,6 +12,8 @@ namespace MyProjectWizard2
 {
     public class WizardImplementation : IWizard
     {
+        private const string generatorName = "angular-basic";
+
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
             //1
@@ -20,7 +22,7 @@ namespace MyProjectWizard2
                 var solutionDirectory = replacementsDictionary["$solutiondirectory$"];
                 var tempDirectory = Path.GetTempPath();
 
-                var userInputForm = new UserInputForm(solutionDirectory, tempDirectory);
+                var userInputForm = new UserInputForm(solutionDirectory, tempDirectory, generatorName);
                 userInputForm.ShowDialog();
 
                 // (1) within a few milli-seconds:
@@ -28,8 +30,9 @@ namespace MyProjectWizard2
 
                 // (2) within 15+ seconds (requires user input & downloads):
                 var assemblyLocation = Assembly.GetExecutingAssembly().Location;
-                var yoBatchFile = $@"{Path.GetDirectoryName(assemblyLocation)}\yo.bat"; 
-                InvokeCommand(yoBatchFile);
+                var yoBatchFile = $@"{Path.GetDirectoryName(assemblyLocation)}\yo.bat";
+                var args = $"-{generatorName}";
+                InvokeCommand(yoBatchFile, args);
                 
                 // (3) within 15+ seconds: 
                 // this is the only point in code we hit where we can try to move/delete the regular project
@@ -44,10 +47,11 @@ namespace MyProjectWizard2
             }
         }
 
-        private void InvokeCommand(string batchFileToBeOpened)
+        private void InvokeCommand(string batchFileToBeOpened, string args)
         {
             var start = new ProcessStartInfo()
             {
+                Arguments = args,
                 CreateNoWindow = false,
                 FileName = batchFileToBeOpened,
                 UseShellExecute = false,

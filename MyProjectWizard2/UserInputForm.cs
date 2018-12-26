@@ -9,7 +9,7 @@ namespace MyProjectWizard2
         private Button btnOk;
         private Button btnCancel;
 
-        public UserInputForm(string solutionDirectory, string tempDirectory)
+        public UserInputForm(string solutionDirectory, string tempDirectory, string generatorName)
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
@@ -25,9 +25,9 @@ namespace MyProjectWizard2
                 $"The following will happen:" + Environment.NewLine +
                 $" - A new temporary project will be created at {solutionDirectory}{Environment.NewLine}" +
                 $" - A command prompt window will open and run the following commands{Environment.NewLine}" +
-                $"    - npm install -g yo generator-angular-basic{Environment.NewLine}" +
+                $"    - npm install -g yo generator-{generatorName}{Environment.NewLine}" +
                 $"    - yo angular-basic {Environment.NewLine}" +
-                $" - The new yeoman generated XXXXXXXXXangular-basicXXXXXXXXXXX project will be launched in a NEW instance of Visual Studio{Environment.NewLine}" +
+                $" - The new yeoman generated '{generatorName}' project will be launched in a NEW instance of Visual Studio{Environment.NewLine}" +
                 $" - The temporary project (which is actually just an empty folder) will be moved{Environment.NewLine}" +
                 $" from{Environment.NewLine}" +
                 $"      {solutionDirectory}{Environment.NewLine}" +
