@@ -47,6 +47,7 @@ namespace MyProjectWizard2
             var assemblyLocation = Assembly.GetExecutingAssembly().Location;
             var assemblyDirectory = Path.GetDirectoryName(assemblyLocation);
             var yoBatchFile = $@"{assemblyDirectory}\yo.bat";
+            //gregt cater for generationDirectory already exists 
             var args = $"{generatorName} {generationDirectory}";
             InvokeCommand(yoBatchFile, args);
         }
