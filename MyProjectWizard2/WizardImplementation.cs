@@ -18,20 +18,22 @@ namespace MyProjectWizard2
         {
             try
             {
+                // initialisation
                 var solutionDirectory = replacementsDictionary["$solutiondirectory$"];
+                var solutionDirectoryInfo = new DirectoryInfo(solutionDirectory);
                 var tempDirectory = Path.GetTempPath();
 
+                // generate ui
                 var userInputForm = new UserInputForm(solutionDirectory, tempDirectory, generatorName);
                 userInputForm.ShowDialog();
 
                 // within a few milli-seconds the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node) is created
 
                 // run batch file that gathers user input & performs downloads 
-                var solutionDirectoryInfo = new DirectoryInfo(solutionDirectory);
                 GenerateYeomanProject(solutionDirectoryInfo.Parent.FullName);
 
                 // now that yeoman has done its thing we are at the only point in code where we can try to archive the regular project, safe in the knowledge that enough time has passed to gaurantee it was created successfully
-                ArchiveRegularProject(solutionDirectory, tempDirectory);
+                ArchiveRegularProject(solutionDirectory, tempDirectory, solutionDirectoryInfo);
             }
             catch (Exception ex)
             {
@@ -49,9 +51,8 @@ namespace MyProjectWizard2
             InvokeCommand(yoBatchFile, args);
         }
 
-        private static void ArchiveRegularProject(string solutionDirectory, string tempDirectory)
+        private static void ArchiveRegularProject(string solutionDirectory, string tempDirectory, DirectoryInfo solutionDirectoryInfo)
         {
-            var solutionDirectoryInfo = new DirectoryInfo(solutionDirectory);
             var archiveLocation = $"{tempDirectory}\\{solutionDirectoryInfo.Name}";
             Directory.Move(solutionDirectory, archiveLocation);
         }
