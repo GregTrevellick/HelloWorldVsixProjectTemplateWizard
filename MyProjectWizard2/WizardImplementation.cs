@@ -30,7 +30,7 @@ namespace MyProjectWizard2
 
                 // This is the only point in code we hit where we can try to move/delete the regular project
                 // We can now move/delete the regular project safe in the knowledge that enough time has passed to gaurantee it was created successfully
-                InvokeCommand($@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MoveTheRegularProjectToCTemp.bat -{destinationDirectory});");
+                Directory.Move(destinationDirectory, tempDirectory);
             }
             catch (Exception ex)
             {
