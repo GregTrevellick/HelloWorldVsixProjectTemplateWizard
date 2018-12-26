@@ -1,18 +1,17 @@
-rem @echo off
+@echo off
 
 set arg1=%1
-echo arg1
-set gener="aaaa"+arg1
-echo gener
+set "arg2=generator-%arg1%"
+
 
 REM gregt temp ???
 cd C:\temp
 
 setlocal enableDelayedExpansion
 
-call npm install -g yo generator-angular-basic
+call npm install -g yo %arg2%
 
-call yo arg1
+call yo %arg1%
 
 ::build "array" of .csproj files in sub-folders
 set folderCnt=0

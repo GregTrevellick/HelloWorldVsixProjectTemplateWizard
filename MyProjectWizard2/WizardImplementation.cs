@@ -16,7 +16,6 @@ namespace MyProjectWizard2
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
-            //1
             try
             {
                 var solutionDirectory = replacementsDictionary["$solutiondirectory$"];
@@ -25,18 +24,14 @@ namespace MyProjectWizard2
                 var userInputForm = new UserInputForm(solutionDirectory, tempDirectory, generatorName);
                 userInputForm.ShowDialog();
 
-                // (1) within a few milli-seconds:
-                // the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node)
+                // within a few milli-seconds the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node) is created
 
-                // (2) within 15+ seconds (requires user input & downloads):
+                // run batch file that gathers user input & performs downloads 
                 var assemblyLocation = Assembly.GetExecutingAssembly().Location;
                 var yoBatchFile = $@"{Path.GetDirectoryName(assemblyLocation)}\yo.bat";
-                var args = $"-{generatorName}";
-                InvokeCommand(yoBatchFile, args);
+                InvokeCommand(yoBatchFile, generatorName);
                 
-                // (3) within 15+ seconds: 
-                // this is the only point in code we hit where we can try to move/delete the regular project
-                // we can now move/delete the regular project safe in the knowledge that enough time has passed to gaurantee it was created successfully
+                // now that yeoman has done its thing we are at the only point in code where we can try to archive the regular project, safe in the knowledge that enough time has passed to gaurantee it was created successfully
                 var solutionDirectoryInfo = new DirectoryInfo(solutionDirectory);
                 Directory.Move(solutionDirectory, $"{tempDirectory}\\{solutionDirectoryInfo.Name}");
             }
@@ -76,14 +71,12 @@ namespace MyProjectWizard2
 
         public void ProjectFinishedGenerating(Project project)
         {
-            //3
             //this breakpoint is never when we create an empty directory only as our project
         }
 
         // This method is called after the project is created.  
         public void RunFinished()
         {
-            //4
         }
 
         // This method is only called for item templates, not for project templates.  
@@ -94,7 +87,6 @@ namespace MyProjectWizard2
         // This method is only called for item templates, not for project templates.  
         public bool ShouldAddProjectItem(string filePath)
         {
-            //2
             return true;
         }
     }
