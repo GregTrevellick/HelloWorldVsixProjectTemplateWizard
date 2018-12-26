@@ -46,15 +46,19 @@ namespace MyProjectWizard2
         {
             var assemblyLocation = Assembly.GetExecutingAssembly().Location;
             var assemblyDirectory = Path.GetDirectoryName(assemblyLocation);
+
             var yoBatchFile = $@"{assemblyDirectory}\yo.bat";
-            //gregt cater for generationDirectory already exists 
             var args = $"{generatorName} {generationDirectory}";
+
+            //gregt cater for generationDirectory already exists 
+
             InvokeCommand(yoBatchFile, args);
         }
 
         private static void ArchiveRegularProject(string solutionDirectory, string tempDirectory, DirectoryInfo solutionDirectoryInfo)
         {
             //gregt cater for directory not exists / already exists
+
             var archiveLocation = $"{tempDirectory}\\{solutionDirectoryInfo.Name}";
             Directory.Move(solutionDirectory, archiveLocation);
         }
