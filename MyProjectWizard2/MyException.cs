@@ -1,6 +1,6 @@
-﻿using System;
+﻿//using System;
 
-namespace MyProjectWizard2
-{
-    public class MyException : Exception { }
-}
+//namespace MyProjectWizard2
+//{
+//    public class MyException : Exception { }
+//}

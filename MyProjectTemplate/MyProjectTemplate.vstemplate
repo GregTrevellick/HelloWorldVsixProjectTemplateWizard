@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <CreateNewFolder>true</CreateNewFolder>
+    <!--<CreateNewFolder>false</CreateNewFolder>-->
     <DefaultName>None</DefaultName>
     <Description>MyProjectTemplate2bb</Description>
  
     <Icon>MyProjectTemplate.ico</Icon>
     <Name>MyProjectTemplate2b</Name>
-    
-    
+
+
     <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>Angular</ProjectSubType>
     <ProvideDefaultName>true</ProvideDefaultName>
-    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>878fe27b-3c68-46a7-8fc1-5e834a477d65</TemplateID>
+    <!--<RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>-->
+    <RequiredFrameworkVersion>netcoreapp2.1</RequiredFrameworkVersion><!--taken from per matt's csproj-->
+    <EnableLocationBrowseButton>false</EnableLocationBrowseButton>
+    <LocationField>Disabled</LocationField>
+
+    
+    
+    
+    
+    
+    
+    
+    <!--<SpecialTemplateType>EmptyShared</SpecialTemplateType>-->
+
+    <!--<PromptForSaveOnCreation>false</PromptForSaveOnCreation>-->
+    <!--<PromptForSaveOnCreation>true</PromptForSaveOnCreation>-->
+    <!--<LocationFieldMRUPrefix>abc</LocationFieldMRUPrefix>-->
+
+
   </TemplateData>
   <TemplateContent>
     <!--<Project File="ProjectTemplate.csproj" ReplaceParameters="true">

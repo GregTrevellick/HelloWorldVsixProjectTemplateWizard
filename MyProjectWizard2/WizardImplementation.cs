@@ -17,17 +17,16 @@ namespace MyProjectWizard2
             {
                 var userInputForm = new UserInputForm();
                 userInputForm.ShowDialog();
-
+                //when user presses "ok" in dialog 2 things happens asynchronously
+                // (1) the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node)
+                //     this takes a few seconds
+                // (2) we run the invoke command below 
+                //     this takes multiple seconds
                 InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
-
-                throw new MyException();
-            }
-            catch (MyException ex)
-            {
-                //crude attempt to stop creating a regular csproj 
             }
             catch (Exception ex)
             {
+                //gregt do some vsix logging here
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -48,6 +47,7 @@ namespace MyProjectWizard2
             }
             catch (Exception ex)
             {
+                //gregt do some vsix logging here
                 throw (ex);
             }
         }
@@ -60,6 +60,9 @@ namespace MyProjectWizard2
         public void ProjectFinishedGenerating(Project project)
         {
             //3
+            //could potentially delete the newly created project here
+            Console.WriteLine("$safeprojectname$");
+            InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MoveTheRegularProjectToCTemp.bat");
         }
 
         // This method is called after the project is created.  
