@@ -1,15 +1,14 @@
 @echo off
 
 set arg1=%1
-set "arg2=generator-%arg1%"
+set arg2=%2
+set "arg3=generator-%arg1%"
 
-
-REM gregt temp ???
-cd C:\temp
+cd %arg2%
 
 setlocal enableDelayedExpansion
 
-call npm install -g yo %arg2%
+call npm install -g yo %arg3%
 
 call yo %arg1%
 

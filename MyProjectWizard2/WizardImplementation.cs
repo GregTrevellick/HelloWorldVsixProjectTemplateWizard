@@ -27,19 +27,33 @@ namespace MyProjectWizard2
                 // within a few milli-seconds the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node) is created
 
                 // run batch file that gathers user input & performs downloads 
-                var assemblyLocation = Assembly.GetExecutingAssembly().Location;
-                var yoBatchFile = $@"{Path.GetDirectoryName(assemblyLocation)}\yo.bat";
-                InvokeCommand(yoBatchFile, generatorName);
-                
-                // now that yeoman has done its thing we are at the only point in code where we can try to archive the regular project, safe in the knowledge that enough time has passed to gaurantee it was created successfully
                 var solutionDirectoryInfo = new DirectoryInfo(solutionDirectory);
-                Directory.Move(solutionDirectory, $"{tempDirectory}\\{solutionDirectoryInfo.Name}");
+                GenerateYeomanProject(solutionDirectoryInfo.Parent.FullName);
+
+                // now that yeoman has done its thing we are at the only point in code where we can try to archive the regular project, safe in the knowledge that enough time has passed to gaurantee it was created successfully
+                ArchiveRegularProject(solutionDirectory, tempDirectory);
             }
             catch (Exception ex)
             {
                 //gregt do some vsix logging here
                 MessageBox.Show(ex.ToString());
             }
+        }
+       
+        private void GenerateYeomanProject(string generationDirectory)
+        {
+            var assemblyLocation = Assembly.GetExecutingAssembly().Location;
+            var assemblyDirectory = Path.GetDirectoryName(assemblyLocation);
+            var yoBatchFile = $@"{assemblyDirectory}\yo.bat";
+            var args = $"{generatorName} {generationDirectory}";
+            InvokeCommand(yoBatchFile, args);
+        }
+
+        private static void ArchiveRegularProject(string solutionDirectory, string tempDirectory)
+        {
+            var solutionDirectoryInfo = new DirectoryInfo(solutionDirectory);
+            var archiveLocation = $"{tempDirectory}\\{solutionDirectoryInfo.Name}";
+            Directory.Move(solutionDirectory, archiveLocation);
         }
 
         private void InvokeCommand(string batchFileToBeOpened, string args)
@@ -64,29 +78,29 @@ namespace MyProjectWizard2
             }
         }
 
-        // This method is called before opening any item that has the OpenInEditor attribute.  
         public void BeforeOpeningFile(ProjectItem projectItem)
         {
+            // This method is called before opening any item that has the OpenInEditor attribute.  
         }
 
         public void ProjectFinishedGenerating(Project project)
         {
-            //this breakpoint is never when we create an empty directory only as our project
+            // This method not called when we create an empty directory only as our regular project.
         }
 
-        // This method is called after the project is created.  
         public void RunFinished()
         {
+            // This method is called after the project is created.  
         }
 
-        // This method is only called for item templates, not for project templates.  
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
         {
+            // This method is only called for item templates, not for project templates.  
         }
 
-        // This method is only called for item templates, not for project templates.  
         public bool ShouldAddProjectItem(string filePath)
         {
+            // This method is only called for item templates, not for project templates.  
             return true;
         }
     }
