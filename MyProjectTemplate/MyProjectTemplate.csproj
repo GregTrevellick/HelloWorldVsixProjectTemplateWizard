@@ -59,7 +59,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AssemblyInfo.cs" />
     <None Include="packages.config" />
     <None Include="ProjectTemplate.csproj" />
     <None Include="MyProjectTemplate.ico" />
