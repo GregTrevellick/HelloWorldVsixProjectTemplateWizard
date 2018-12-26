@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using Process = System.Diagnostics.Process;
 
@@ -26,7 +27,8 @@ namespace MyProjectWizard2
                 // the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node)
 
                 // (2) within 15+ seconds (requires user input & downloads):
-                var yoBatchFile = @"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat";
+                var assemblyLocation = Assembly.GetExecutingAssembly().Location;
+                var yoBatchFile = $@"{Path.GetDirectoryName(assemblyLocation)}\yo.bat"; 
                 InvokeCommand(yoBatchFile);
                 
                 // (3) within 15+ seconds: 

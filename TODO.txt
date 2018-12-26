@@ -12,15 +12,3 @@ Make a note of public key token e.g. 9e2a5071fb59846e
 
 Paste public key into C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MyProjectTemplate\MyProjectTemplate.vstemplate at line <Assembly>MyProjectWizard2, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=c8911b993b41a682</Assembly>  
 
-
-
-
-
-
-
-
-
-
-
-
-make it work without hardcoded path to batch file i.e. batch file included in vsix itself
