@@ -16,21 +16,23 @@ namespace MyProjectWizard2
             //1
             try
             {
-                var destinationDirectory = replacementsDictionary["$destinationdirectory$"];
-                var tempDirectory = Path.GetTempPath(); //Environment.GetFolderPath(Environment.SpecialFolder.t);
+                var solutionDirectory = replacementsDictionary["$solutiondirectory$"];
+                var tempDirectory = Path.GetTempPath();
 
-                var userInputForm = new UserInputForm(destinationDirectory, tempDirectory);
+                var userInputForm = new UserInputForm(solutionDirectory, tempDirectory);
                 userInputForm.ShowDialog();
 
                 // (1) within a few milli-seconds:
                 // the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node)
 
                 // (2) within 15+ seconds (requires user input & downloads):
-                InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
+ //               InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
 
-                // This is the only point in code we hit where we can try to move/delete the regular project
-                // We can now move/delete the regular project safe in the knowledge that enough time has passed to gaurantee it was created successfully
-                Directory.Move(destinationDirectory, tempDirectory);
+                // (3) within 15+ seconds: 
+                // this is the only point in code we hit where we can try to move/delete the regular project
+                // we can now move/delete the regular project safe in the knowledge that enough time has passed to gaurantee it was created successfully
+                var solutionDirectoryInfo = new DirectoryInfo(solutionDirectory);
+                Directory.Move(solutionDirectory, $"{tempDirectory}\\{solutionDirectoryInfo.Name}");
             }
             catch (Exception ex)
             {

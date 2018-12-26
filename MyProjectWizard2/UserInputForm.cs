@@ -9,7 +9,7 @@ namespace MyProjectWizard2
         private Button btnOk;
         private Button btnCancel;
 
-        public UserInputForm(string destinationDirectory, string tempDirectory)
+        public UserInputForm(string solutionDirectory, string tempDirectory)
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
@@ -23,11 +23,15 @@ namespace MyProjectWizard2
             this.label1.TabIndex = 0;
             this.label1.Text =
                 $"The following will happen:" + Environment.NewLine +
-                $" - A new temporary project will be created at {destinationDirectory}{Environment.NewLine}" +
+                $" - A new temporary project will be created at {solutionDirectory}{Environment.NewLine}" +
                 $" - A command prompt window will open and run the following commands{Environment.NewLine}" +
                 $"    - npm install -g yo generator-angular-basic{Environment.NewLine}" +
                 $"    - yo angular-basic {Environment.NewLine}" +
-                $" - The temporary project (which is actually just an empty folder) {destinationDirectory} will be moved to {tempDirectory}{Environment.NewLine}" +
+                $" - The temporary project (which is actually just an empty folder) will be moved{Environment.NewLine}" +
+                $" from{Environment.NewLine}" +
+                $"      {solutionDirectory}{Environment.NewLine}" +
+                $" to{Environment.NewLine}" +
+                $"      {tempDirectory}{Environment.NewLine}" +
                 $"{Environment.NewLine}Click OK to proceed.";
  
             this.btnOk.Location = new System.Drawing.Point(464, 202);
