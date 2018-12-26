@@ -39,14 +39,12 @@ namespace MyProjectWizard2
 
         //}
 
-        public UserInputForm(string destinationDirectory)
+        public UserInputForm(string destinationDirectory, string tempDirectory)
         {
         //}
 
         //public UserInputForm()
         //{
-            var tempDirectory = "gregt";
-
             this.label1 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();

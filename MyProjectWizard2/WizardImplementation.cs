@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TemplateWizard;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 using Process = System.Diagnostics.Process;
 
@@ -16,7 +17,9 @@ namespace MyProjectWizard2
             try
             {
                 var destinationDirectory = replacementsDictionary["$destinationdirectory$"];
-                var userInputForm = new UserInputForm(destinationDirectory);
+                var tempDirectory = Path.GetTempPath(); //Environment.GetFolderPath(Environment.SpecialFolder.t);
+
+                var userInputForm = new UserInputForm(destinationDirectory, tempDirectory);
                 userInputForm.ShowDialog();
 
                 // (1) within a few milli-seconds:
