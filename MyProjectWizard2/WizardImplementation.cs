@@ -53,6 +53,7 @@ namespace MyProjectWizard2
 
         private static void ArchiveRegularProject(string solutionDirectory, string tempDirectory, DirectoryInfo solutionDirectoryInfo)
         {
+            //gregt cater for directory not exists / already exists
             var archiveLocation = $"{tempDirectory}\\{solutionDirectoryInfo.Name}";
             Directory.Move(solutionDirectory, archiveLocation);
         }
