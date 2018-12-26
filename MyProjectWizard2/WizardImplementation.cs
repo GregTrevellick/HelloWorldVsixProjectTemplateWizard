@@ -26,9 +26,9 @@ namespace MyProjectWizard2
                 // the regular new project (in our case literally just an empty folder due to MyProjectTemplate.vstemplate having empty 'TemplateContent' node)
 
                 // (2) within 15+ seconds (requires user input & downloads):
-                //InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat");
-                InvokeCommand(@"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yoDebugging.bat");
-
+                var yoBatchFile = @"C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\yo.bat";
+                InvokeCommand(yoBatchFile);
+                
                 // (3) within 15+ seconds: 
                 // this is the only point in code we hit where we can try to move/delete the regular project
                 // we can now move/delete the regular project safe in the knowledge that enough time has passed to gaurantee it was created successfully
