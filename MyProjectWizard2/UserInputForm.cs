@@ -26,7 +26,7 @@ namespace MyProjectWizard2
                 $" - A new temporary project will be created at {solutionDirectory}{Environment.NewLine}" +
                 $" - A command prompt window will open and run the following commands{Environment.NewLine}" +
                 $"    - npm install -g yo generator-{generatorName}{Environment.NewLine}" +
-                $"    - yo angular-basic {Environment.NewLine}" +
+                $"    - yo {generatorName}{Environment.NewLine}" +
                 $" - The new yeoman generated '{generatorName}' project will be launched in a NEW instance of Visual Studio{Environment.NewLine}" +
                 $" - The temporary project (which is actually just an empty folder) will be moved{Environment.NewLine}" +
                 $" from{Environment.NewLine}" +
