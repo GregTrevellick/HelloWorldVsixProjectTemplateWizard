@@ -23,5 +23,4 @@ Paste public key into C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MyProjec
 
 
 
-open the new g6.csproj in existing parent VS process, not a new VS process
 make it work without hardcoded path to batch file i.e. batch file included in vsix itself
