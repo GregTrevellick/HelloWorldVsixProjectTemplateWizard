@@ -11,17 +11,17 @@ namespace MyProjectWizard2
 
         public UserInputForm(string solutionDirectory, string tempDirectory, string generatorName)
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            btnOk = new Button();
+            btnCancel = new Button();
+            SuspendLayout();
 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text =
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(25, 22);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(35, 13);
+            label1.TabIndex = 0;
+            label1.Text =
                 $"The following will happen:" + Environment.NewLine +
                 $" - A new temporary project will be created at {solutionDirectory}{Environment.NewLine}" +
                 $" - A command prompt window will open and run the following commands{Environment.NewLine}" +
@@ -35,29 +35,29 @@ namespace MyProjectWizard2
                 $"      {tempDirectory}{Environment.NewLine}" +
                 $"{Environment.NewLine}Click OK to proceed.";
 
-            this.btnOk.Location = new System.Drawing.Point(464, 202);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 1;
-            this.btnOk.Text = "Ok";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            btnOk.Location = new System.Drawing.Point(464, 202);
+            btnOk.Name = "btnOk";
+            btnOk.Size = new System.Drawing.Size(75, 23);
+            btnOk.TabIndex = 1;
+            btnOk.Text = "Ok";
+            btnOk.UseVisualStyleBackColor = true;
+            btnOk.Click += new System.EventHandler(this.btnOk_Click);
 
-            this.btnCancel.Location = new System.Drawing.Point(559, 202);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            btnCancel.Location = new System.Drawing.Point(559, 202);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new System.Drawing.Size(75, 23);
+            btnCancel.TabIndex = 2;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += new EventHandler(this.btnCancel_Click);
 
-            this.ClientSize = new System.Drawing.Size(646, 237);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.label1);
-            this.Name = "UserInputForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new System.Drawing.Size(646, 237);
+            Controls.Add(this.btnCancel);
+            Controls.Add(this.btnOk);
+            Controls.Add(this.label1);
+            Name = "UserInputForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
