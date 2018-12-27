@@ -8,9 +8,9 @@ using System.Reflection;
 using System.Windows.Forms;
 using Process = System.Diagnostics.Process;
 
-namespace MyProjectWizard2
+namespace YoAngularBasic
 {
-    public class WizardImplementation : IWizard
+    public class WizardImplementation : IWizard //gregt rename class ?
     {
         private const string generatorName = "angular-basic";
 

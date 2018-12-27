@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
-namespace MyProjectWizard2
+namespace YoAngularBasic
 {
-    public partial class UserInputForm : Form
+    public partial class UserInputForm : Form //gregt rename class ?
     {
         private Label label1;
         private Button btnOk;

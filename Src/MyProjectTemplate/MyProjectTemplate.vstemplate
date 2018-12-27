@@ -42,6 +42,6 @@
   </TemplateContent>
   <WizardExtension>  
     <Assembly>MyProjectWizard2, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9e2a5071fb59846e</Assembly>  
-    <FullClassName>MyProjectWizard2.WizardImplementation</FullClassName>  
+    <FullClassName>YoAngularBasic.WizardImplementation</FullClassName>  
   </WizardExtension>  
 </VSTemplate>
