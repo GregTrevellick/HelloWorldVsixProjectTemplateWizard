@@ -12,7 +12,8 @@ namespace YoAngularBasic
 {
     public class WizardImplementation : IWizard //gregt rename class ?
     {
-        private const string generatorName = "angular-basic";
+        //private const string generatorName = "angular-basic";//https://github.com/MattJeanes/AngularBasic
+        private const string generatorName = "aspnet";//https://github.com/OmniSharp/generator-aspnet
 
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
