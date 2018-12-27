@@ -15,7 +15,7 @@ namespace MyProjectWizard2
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-
+ 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 22);
             this.label1.Name = "label1";
@@ -34,7 +34,7 @@ namespace MyProjectWizard2
                 $" to{Environment.NewLine}" +
                 $"      {tempDirectory}{Environment.NewLine}" +
                 $"{Environment.NewLine}Click OK to proceed.";
-
+ 
             this.btnOk.Location = new System.Drawing.Point(464, 202);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
