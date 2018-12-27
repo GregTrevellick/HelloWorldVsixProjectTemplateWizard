@@ -12,3 +12,27 @@ Make a note of public key token e.g. 6a6701d726c2b58c
 
 Paste public key into C:\_git\HelloWorldVsixProjectTemplateWizardYeoman\MyProjectTemplate\MyProjectTemplate.vstemplate at line <Assembly>MyProjectWizard2, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=c8911b993b41a682</Assembly>  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create new github repo ==> add badges
+create tags in existing repo ==> reset master back to prior to yeoman ==> publish that as an example vsix
+rename MyProjectTemplate project to MinimalProjectTemplate
+get it working for OmniSharp/generator-aspnet aswell as matt's ang-bas ==> extract common code into separate project ?
+in the pop-up, use the actual regular project name not 'temporary project'
+gregt's
+bug: open most recent csproj file
